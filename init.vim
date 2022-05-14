@@ -40,5 +40,10 @@ set smartindent
 nnoremap <expr> S* ':%s/\<' . expand('<cword>') . '\>/'
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-autocmd InsertLeavePre * :call system('im-select com.apple.inputmethod.Kotoeri.RomajiTyping.Roman')
+if has('mac')
+	autocmd InsertLeavePre * :call system('im-select com.apple.inputmethod.Kotoeri.RomajiTyping.Roman')
+endif
+if has('unix')
+	autocmd InsertLeavePre * :call system('ibus engine xkb:us::eng')
+endif
 
