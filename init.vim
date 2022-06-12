@@ -39,6 +39,9 @@ endif
 
 set autoindent
 set smartindent
+set expandtab
+set tabstop=2
+set shiftwidth=2
 nnoremap <expr> S* ':%s/\<' . expand('<cword>') . '\>/'
 
 if has('mac')
@@ -48,3 +51,4 @@ if has('unix')
 	autocmd InsertLeavePre * :call system('ibus engine xkb:us::eng')
 endif
 
+set clipboard+=unnamedplus
